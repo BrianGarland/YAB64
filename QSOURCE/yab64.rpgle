@@ -1,6 +1,9 @@
 **FREE
 
 
+CTL-OPT NOMAIN;
+
+
 
 /INCLUDE yab64_h.rpgle
 
@@ -36,7 +39,7 @@ DCL-DS qtqcode_t QUALIFIED TEMPLATE;
     ShiftStateAlternative   INT(10) INZ(0);               
     InputLengthOption       INT(10) INZ(0);               
     ErrorOption             INT(10) INZ(0);               
-    Reserved                CHAR(8) INZ(*LOVAL)       
+    Reserved                CHAR(8) INZ(*LOVAL);       
 END-DS;
 
 
@@ -78,12 +81,12 @@ DCL-PROC YAB64_Encode EXPORT;
     DCL-DS iconv_to   LIKEDS(qtqcode_t);
 
     DCL-S Alphabet     CHAR(64);
-    DCL-S AsciiString  LIKE(LongString);
+    DCL-S AsciiString  LIKE(YAB64_Long_String);
     DCL-S AsciiPtr     POINTER INZ(%ADDR(AsciiString));
     DCL-S AsciiLen     UNS(10);
     DCL-S Binary       CHAR(8);
     DCL-S BinaryString VARCHAR(1000000);
-    DCL-S EbcdicString LIKE(LongString);
+    DCL-S EbcdicString LIKE(YAB64_Long_String);
     DCL-S EbcdicPtr    POINTER INZ(%ADDR(EbcdicString));
     DCL-S EbcdicLen    UNS(10);
     DCL-S i            INT(5);
@@ -185,11 +188,11 @@ DCL-PROC YAB64_Decode EXPORT;
     DCL-DS iconv_to   LIKEDS(qtqcode_t);
 
     DCL-S Alphabet     CHAR(64);
-    DCL-S AsciiString  LIKE(LongString);
+    DCL-S AsciiString  LIKE(YAB64_Long_String);
     DCL-S AsciiPtr     POINTER INZ(%ADDR(AsciiString));
     DCL-S AsciiLen     UNS(10);
     DCL-S Binary1      CHAR(6) DIM(MAX_LENGTH);
-    DCL-S EbcdicString LIKE(LongString);
+    DCL-S EbcdicString LIKE(YAB64_Long_String);
     DCL-S EbcdicPtr    POINTER INZ(%ADDR(EbcdicString));
     DCL-S EbcdicLen    UNS(10);
     DCL-S i            INT(5);

@@ -1,7 +1,7 @@
 **FREE 
 
-
-DCL-S YAB64_Long_String CHAR(32767);
+DCL-S MAX_LENGTH INT(10) INZ(32767);
+DCL-S YAB64_Long_String CHAR(MAX_LENGTH);
 
 
 //------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ END-PR;
 //     None
 //
 //------------------------------------------------------------------------------
-DCL-PR YAB64_Encode;
+DCL-PR YAB64_Decode;
     Input     LIKE(YAB64_Long_String) OPTIONS(*VARSIZE);
     InputLen  UNS(5) CONST;
     Output    LIKE(YAB64_Long_String) OPTIONS(*VARSIZE);
