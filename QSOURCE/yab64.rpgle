@@ -77,8 +77,9 @@ DCL-PROC YAB64_Encode EXPORT;
         AsciiNum  UNS(3) POS(1);
     END-DS;
 
-    DCL-DS iconv_from LIKEDS(qtqcode_t);
-    DCL-DS iconv_to   LIKEDS(qtqcode_t);
+    DCL-DS iconv_from  LIKEDS(qtqcode_t);
+    DCL-DS iconv_to    LIKEDS(qtqcode_t);
+    DCL-DS iconv_table LIKEDS(iconv_t);
 
     DCL-S Alphabet     CHAR(64);
     DCL-S AsciiString  LIKE(YAB64_Long_String);
@@ -186,6 +187,7 @@ DCL-PROC YAB64_Decode EXPORT;
 
     DCL-DS iconv_from LIKEDS(qtqcode_t);
     DCL-DS iconv_to   LIKEDS(qtqcode_t);
+    DCL-DS iconv_table LIKEDS(iconv_t);
 
     DCL-S Alphabet     CHAR(64);
     DCL-S AsciiString  LIKE(YAB64_Long_String);
